@@ -1,5 +1,6 @@
 import sys
 import os
+from math import sqrt
 
 args = sys.argv[1:]
 numOfArgs = len(args)
@@ -33,3 +34,18 @@ elif numOfArgs == 1:
 else:
     print("Invalid number of arguments.")
     sys.exit()
+
+# Calculating the roots of a quadratic equation
+print(f"Equation is: {a}x^2 + {b}x + {c} = 0")
+
+discriminant = b**2 - 4*a*c
+
+if discriminant < 0:
+    print("There are 0 roots")
+elif discriminant == 0:
+    x = -b / (2*a)
+    print(f"There are 1 roots\nx={x}")
+else:
+    x1 = (-b + sqrt(discriminant)) / (2*a)
+    x2 = (-b - sqrt(discriminant)) / (2*a)
+    print(f"There are 2 roots\nx1={x1}\nx2={x2}")
