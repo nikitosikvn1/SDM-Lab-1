@@ -2,6 +2,8 @@ import sys
 import os
 from math import sqrt
 
+from colors import RED, GREEN, YELLOW, RESET
+
 args = sys.argv[1:]
 numOfArgs = len(args)
 
@@ -10,12 +12,12 @@ if numOfArgs == 0:
     numbers, labels = [], ["a", "b", "c"]
 
     while len(numbers) < 3:
-        user_input = input(f"Enter {labels[len(numbers)]}: ")
+        user_input = input(YELLOW + f"Enter {labels[len(numbers)]}: " + RESET)
         try:
             number = float(user_input)
             numbers.append(number)
         except ValueError:
-            print("Error. Expected a valid real number, got invalid instead")
+            print(RED + "Error. Expected a valid real number, got invalid instead" + RESET)
 
     a, b, c = numbers
 # If one argument was passed, then check if it is a path to a file and use file mode
@@ -26,13 +28,13 @@ elif numOfArgs == 1:
             try:
                 a, b, c = map(float, first_line.split())
             except ValueError:
-                print("Error. File contains invalid data")
+                print(RED + "Error. File contains invalid data" + RESET)
                 sys.exit()
     else:
-        print("It looks like the argument passed is not a path to a file.")
+        print(RED + "Error. It looks like the argument passed is not a path to a file" + RESET)
 # If more than one argument was passed, then the error output
 else:
-    print("Invalid number of arguments.")
+    print(RED + "Invalid number of arguments." + RESET)
     sys.exit()
 
 # Calculating the roots of a quadratic equation
@@ -42,10 +44,15 @@ discriminant = b**2 - 4*a*c
 
 if discriminant < 0:
     print("There are 0 roots")
+
 elif discriminant == 0:
     x = -b / (2*a)
-    print(f"There are 1 roots\nx={x}")
+    print("There are 1 roots")
+    print(GREEN + f"x= {x}" + RESET)
+    
 else:
     x1 = (-b + sqrt(discriminant)) / (2*a)
     x2 = (-b - sqrt(discriminant)) / (2*a)
-    print(f"There are 2 roots\nx1={x1}\nx2={x2}")
+    print("There are 2 roots")
+    print(GREEN + f"x1= {x1}" + RESET)
+    print(GREEN + f"x2= {x2}" + RESET)
