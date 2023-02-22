@@ -32,6 +32,7 @@ elif numOfArgs == 1:
                 sys.exit()
     else:
         print(RED + "Error. It looks like the argument passed is not a path to a file" + RESET)
+        sys.exit()
 # If more than one argument was passed, then the error output
 else:
     print(RED + "Invalid number of arguments." + RESET)
@@ -49,7 +50,7 @@ elif discriminant == 0:
     x = -b / (2*a)
     print("There are 1 roots")
     print(GREEN + f"x= {x}" + RESET)
-    
+
 else:
     x1 = (-b + sqrt(discriminant)) / (2*a)
     x2 = (-b - sqrt(discriminant)) / (2*a)
