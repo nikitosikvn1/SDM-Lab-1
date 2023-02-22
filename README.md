@@ -37,3 +37,5 @@ P.S.S If you're on a Linux distribution and you're having problems, try using py
 *Please note that the file must be created in directories that the current user has access to, otherwise there will be access problems.*
 
 ## Revert commit
+- Commit name: Revert "docs: Unwanted changes"
+- Hash: 57874deafcc4aff029d50d3ef80b04e94d5f1347
