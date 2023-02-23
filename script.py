@@ -34,7 +34,11 @@ elif num_of_args == 1:
         sys.exit()
 
 else:
-    print(RED + "Invalid number of arguments." + RESET)
+    print(RED + "Error. Invalid number of arguments" + RESET)
+    sys.exit()
+
+if a == 0:
+    print(RED + "Error. Coefficient 'a' cannot be 0" + RESET)
     sys.exit()
 
 print(f"Equation is: {a}x^2 + {b}x + {c} = 0")
