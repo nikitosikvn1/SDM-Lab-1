@@ -1,3 +1,14 @@
+#!/usr/bin/env python3
+
+"""Console utility for solving quadratic equations.
+
+This script allows you to find the roots of a quadratic equation
+and can work in two modes:
+
+ - If no arguments were passed when calling the script, then the script is run in interactive mode,
+ - If the path to the file was passed when calling the script, then the coefficients of the quadratic equation are read from this file.
+"""
+
 import sys
 import os
 from math import sqrt
@@ -16,7 +27,7 @@ if num_of_args == 0:
             number = float(user_input)
             numbers.append(number)
         except ValueError:
-            print(RED + "Error. Expected a valid real number, got invalid instead" + RESET)
+            print(RED + f"Error. Expected a valid real number, got {user_input} instead" + RESET)
 
     a, b, c = numbers
 
@@ -49,13 +60,13 @@ if discriminant < 0:
     print("There are 0 roots")
 
 elif discriminant == 0:
-    x = -b / (2 * a)
+    x = "%.2f" % (-b / (2 * a))
     print("There is 1 root")
     print(GREEN + f"x = {x}" + RESET)
 
 else:
-    x1 = (-b + sqrt(discriminant)) / (2 * a)
-    x2 = (-b - sqrt(discriminant)) / (2 * a)
+    x1 = "%.2f" % ((-b + sqrt(discriminant)) / (2 * a))
+    x2 = "%.2f" % ((-b - sqrt(discriminant)) / (2 * a))
     print("There are 2 roots")
     print(GREEN + f"x1 = {x1}" + RESET)
     print(GREEN + f"x2 = {x2}" + RESET)
