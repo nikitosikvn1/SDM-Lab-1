@@ -1,7 +1,14 @@
+import os
 import unittest
 import subprocess
 
 class TestQuadraticSolver(unittest.TestCase):
+
+    @classmethod
+    def tearDownClass(cls):
+        os.remove('coefficients.txt')
+        os.remove('invalid_coefficients.txt')
+
     
     def test_interactive_mode(self):
         # Test interactive mode by providing input to the script via subprocess
